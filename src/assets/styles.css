@@ -18,6 +18,11 @@ h6 {
   font-weight: 700;
 }
 
+a {
+  cursor: pointer;
+  /*text-decoration: none;*/
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;
@@ -46,8 +51,8 @@ header.masthead h1 {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 3rem; /*12rem*/
+    padding-bottom: 3rem; /*12rem*/
   }
   header.masthead h1 {
     font-size: 3rem;

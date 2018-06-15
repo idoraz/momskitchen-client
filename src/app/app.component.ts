@@ -16,10 +16,10 @@ export class AppComponent implements OnInit {
   constructor(private serverServices: ServerServicesService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    const rec = new Recipe('Cake');
-    console.log(rec);
+    //const rec = new Recipe('Cake');
+    //console.log(rec);
 
-    this.recipes = this.http.get('localhost:3001/api/recipes');
+    // this.recipes = this.http.get('localhost:3001/api/recipes');
 
     // this.recipes = this.serverServices.getAllRecipes();
     // this.recipes = this.http.jsonp('localhost:3001/getAllRecipes', 'callback');
@@ -27,8 +27,8 @@ export class AppComponent implements OnInit {
 
   }
 
-  callback(): void {
-    console.log('Data retrieved!');
-  }
+  // callback(): void {
+  //   console.log('Data retrieved!');
+  // }
 
 }
