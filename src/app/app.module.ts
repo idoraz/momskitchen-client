@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HttpClientJsonpModule  } from '@angular/common/http';
+import { HttpClientModule  } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { RecipesTableComponent } from './recipes-table/recipes-table.component';
 import { ServerServicesService } from './server-services.service';
 import { StartersComponent } from './starters/starters.component';
 import { HomeComponent } from './home/home.component';
+import { RecipesListComponent } from './recipes-list/recipes-list.component';
 
 let appRoutes: Routes = [
   {
@@ -39,14 +41,15 @@ let appRoutes: Routes = [
     RecipesTableComponent,
     StartersComponent,
     HomeComponent,
+    RecipesListComponent,
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     HttpClientModule,
-    HttpClientJsonpModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     // other imports here
   ],

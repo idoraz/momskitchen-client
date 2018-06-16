@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { ServerServicesService } from './../server-services.service';
 
 @Component({
   selector: 'app-starters',
@@ -7,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartersComponent implements OnInit {
 
-  constructor() { }
+  private subscriptions = new Subscription();
+  recipes: any[];
+
+  constructor(private serverServices: ServerServicesService) { }
 
   ngOnInit() {
-    console.log("IDO");
+    this.subscriptions.add(this.serverServices.getAllRecipes().subscribe(res => {
+      try {
+        this.recipes = JSON.parse(res._body);
+      }
+      catch (err) {
+        console.log(err.message);
+      }
+    }, err => {
+      console.log(err.message);
+    }));
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 
 }
