@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -8,57 +8,36 @@ import { Recipe } from './objects/recipe';
 @Injectable()
 export class ServerServicesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: Http) { }
 
   private apiAddress = {
-    local: {
-      url: 'localhost',
-      port: 3001
+    dev: {
+      url: 'http://127.0.0.1',
+      port: 3000
     },
-    development: {
-      url: 'localhost',
-      port: 3001
+    production: {
+      url: 'http://127.0.0.1',
+      port: 3000
     }
   };
-  private isLive = false;
+  private isLive: boolean = false;
   private recipes: any;
 
-  getAllRecipes (): any {
+  getAllRecipes(): Observable<any> {
 
-    // return this.http.jsonp(this.getApiUrl() + '/getAllRecipes', 'callback');
-    return this.http.jsonp('localhost:3001/getAllRecipes?output=json&callback=JSONP_CALLBACK', 'callback');
-    // .map((response: Response) => {
-    //   return response.json();
-    // });
-
-    // return this.http.get<any>(this.getApiUrl() + '/getAllRecipes').pipe(
-    //   tap(_ => console.log('fetched recipes')),
-    //   catchError(this.handleError<Recipe>('getAllRecipes'))
-    // );
-
-
-    // let recipes = this.http.get(this.getApiUrl() + '/getAllRecipes');
-    // recipes = this.serializeRecipes(recipes);
-    // return recipes;
+    const target = this.getApiUrl();
+    return this.http.get(`${target}/getAllRecipes`);
   }
 
-  getApiUrl (): string {
+  getApiUrl(): string {
     if (this.isLive) {
-      return this.apiAddress.development.url;
+      return `${this.apiAddress.production.url}:${this.apiAddress.production.port}`;
     } else {
-      return this.apiAddress.local.url + ':' + this.apiAddress.local.port;
+      return `${this.apiAddress.dev.url}:${this.apiAddress.dev.port}`;
     }
   }
 
-  serializeRecipes (recipes): any {
-    recipes.forEach((recipe, index) => {
-      console.log(recipe.name);
-    });
-
-    return recipes;
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead

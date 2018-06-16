@@ -1,0 +1,15 @@
+<div class="card-columns">
+
+  <div class="card" *ngFor="let recipe of recipes">
+    <a class="list-group-item" routerLink='/recipe/{{recipe.key}}' data-toggle="popover" title="{{recipe.name}}">
+      <img class="card-img-top" src="{{recipe.image}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.name }}</h5>
+        <ul>
+          <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.name }}</li>
+        </ul>
+      </div>
+    </a>
+  </div>
+
+</div>
