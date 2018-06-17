@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipesListComponent implements OnInit {
 
-  @Input() recipes: any[];  
+  @Input() recipes: any[];
 
   constructor() { }
 

@@ -21,13 +21,6 @@ export class ServerServicesService {
     }
   };
   private isLive: boolean = false;
-  private recipes: any;
-
-  getAllRecipes(): Observable<any> {
-
-    const target = this.getApiUrl();
-    return this.http.get(`${target}/getAllRecipes`);
-  }
 
   getApiUrl(): string {
     if (this.isLive) {
@@ -48,6 +41,16 @@ export class ServerServicesService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  getAllRecipes(): Observable<any> {
+    const target = this.getApiUrl();
+    return this.http.get(`${target}/getAllRecipes`);
+  }
+
+  getRecipe(collectionName: string, key: string): Observable<any> {
+    const target = this.getApiUrl();
+    return this.http.get(`${target}/getObjectByKey/${collectionName}/${key}`);
   }
 
 }

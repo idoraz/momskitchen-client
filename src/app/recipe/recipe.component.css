@@ -1,0 +1,23 @@
+.recipeHeader {
+    margin: 30px 0;
+}
+
+.instructionItem {
+    cursor: pointer;
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+#ingredients {
+    margin: 50px 0;
+}
+
+#instructions {
+    margin: 70px 0;
+}
+
+#images {
+    margin: 100px 0;    
+}
