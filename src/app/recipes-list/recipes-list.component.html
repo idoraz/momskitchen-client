@@ -2,12 +2,13 @@
 
   <div class="card" *ngFor="let recipe of recipes">
     <a class="list-group-item" routerLink='/recipe/{{recipe.key}}' data-toggle="popover" title="{{recipe.name}}">
-      <img class="card-img-top" src="{{recipe.image}}" alt="Card image cap">
+      <img class="card-img-top" src="{{recipe.images[0]}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ recipe.name }}</h5>
-        <ul>
+        <!-- <ul>
           <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.name }}</li>
-        </ul>
+        </ul> -->
+        <span *ngFor="let ingredient of recipe.ingredients; let isLast=last">{{ ingredient.name }}{{isLast ? '' : ', '}}</span>
       </div>
     </a>
   </div>

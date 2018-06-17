@@ -1,0 +1,3 @@
+.appDiv {
+    min-height: calc(100vh - 179px - 56px);
+  }
