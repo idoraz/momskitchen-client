@@ -1,3 +1,27 @@
 .appDiv {
-    min-height: calc(100vh - 179px - 56px);
-  }
+  min-height: calc(100vh - 160px - 72px);
+}
+
+#footerImage img{
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.navBarContent {
+  margin-left: 400px;
+}
+
+.footer {
+  padding: 17px 10px;
+  height: 160px;
+}
+
+.credit {
+  padding: 50px 0;
+}
+
+@media only screen and (max-width: 1366px) {
+  .navBarContent {
+    margin-left: 300px;
+  }  
+}

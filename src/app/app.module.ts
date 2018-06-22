@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { CategoryGridsComponent } from './categoryGrids/categoryGrids.component';
 import { RecipesTableComponent } from './recipes-table/recipes-table.component';
 import { ServerServicesService } from './server-services.service';
-import { StartersComponent } from './starters/starters.component';
+import { DishesComponent } from './dishes/dishes.component';
 import { HomeComponent } from './home/home.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -23,8 +23,12 @@ let appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'starters',
-    component: StartersComponent
+    path: 'dishes/:categoryKey',
+    component: DishesComponent
+  },
+  {
+    path: 'dishes',
+    component: DishesComponent
   },
   { 
     path: '',
@@ -44,7 +48,7 @@ let appRoutes: Routes = [
     AppComponent,
     CategoryGridsComponent,
     RecipesTableComponent,
-    StartersComponent,
+    DishesComponent,
     HomeComponent,
     RecipesListComponent,
     RecipeComponent,
