@@ -48,6 +48,11 @@ export class ServerServicesService {
     return this.http.get(`${target}/getAllRecipes`);
   }
 
+  getRecipes(category: string): Observable<any> {
+    const target = this.getApiUrl();
+    return this.http.get(`${target}/getRecipes/${category}`);
+  }
+
   getRecipe(collectionName: string, key: string): Observable<any> {
     const target = this.getApiUrl();
     return this.http.get(`${target}/getObjectByKey/${collectionName}/${key}`);
