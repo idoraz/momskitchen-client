@@ -12,6 +12,8 @@ import { DishesComponent } from './dishes/dishes.component';
 import { HomeComponent } from './home/home.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+
 
 let appRoutes: Routes = [
   {
@@ -57,11 +59,12 @@ let appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule,
+    HttpClientModule,    
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ),
+    AutoCompleteModule
     // other imports here
   ],
   providers: [
