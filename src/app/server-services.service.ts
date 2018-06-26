@@ -58,4 +58,9 @@ export class ServerServicesService {
     return this.http.get(`${target}/getObjectByKey/${collectionName}/${key}`);
   }
 
+  searchRecipe(token: string): Observable<any> {
+    const target = this.getApiUrl();
+    return this.http.get(`${target}/searchRecipe/${token}`);
+  }
+
 }

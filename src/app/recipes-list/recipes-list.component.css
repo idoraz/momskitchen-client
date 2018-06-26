@@ -1,3 +1,7 @@
 .container {
     padding: 30px 5px;
 }
+
+.card-columns {
+    margin-bottom: 100px;
+}
