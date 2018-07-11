@@ -8,20 +8,32 @@
 }
 
 .navBarContent {
-  margin-left: 400px;
+  margin-right: 400px;  
+}
+
+:host /deep/ .navbar-brand {
+  margin-right: 0px;
+}
+
+.navBarItem {
+  padding: 0 10px;
+  width: 100px;
+}
+.navBarItem:hover, .navBarItem:focus {
+  background-color: #828a99;
 }
 
 .footer {
-  padding: 17px 10px;
-  height: 160px;
+  padding: 10px 10px;
+  min-height: calc(100vh - 844px);
 }
 
 .credit {
-  margin-top: 40px;
+  margin-top: 18px;
 }
 
 @media only screen and (max-width: 1366px) {
   .navBarContent {
-    margin-left: 300px;
+    margin-right: 300px;
   }  
 }

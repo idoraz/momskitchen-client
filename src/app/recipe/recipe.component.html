@@ -9,10 +9,10 @@
           <h2 class="pull-right">מצרכים</h2>
       
           <div>
-            <div class="input-group mb-3" *ngFor="let ingredient of recipe.ingredients">
+            <div class="input-group mb-3" *ngFor="let ingredient of recipe.ingredients; let i=index">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input type="checkbox" aria-label="ingredient.name" [(ngModel)]="ingredient.checked">
+                  <input type="checkbox" aria-label="ingredient.name" [(ngModel)]="ingredient.checked" (click)="ingredientChecked(i)">
                 </div>
               </div>
               <input type="text" class="form-control" [(ngModel)]="ingredient.text" [ngClass]="{ 'checked': ingredient.checked }" aria-label="ingredient.name"
