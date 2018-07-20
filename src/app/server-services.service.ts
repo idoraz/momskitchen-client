@@ -16,11 +16,11 @@ export class ServerServicesService {
       port: 3000
     },
     production: {
-      url: 'http://127.0.0.1',
+      url: 'http://momskitchen.ddns.net',
       port: 3000
     }
   };
-  private isLive: boolean = false;
+  private isLive: boolean = true;
 
   getApiUrl(): string {
     if (this.isLive) {
