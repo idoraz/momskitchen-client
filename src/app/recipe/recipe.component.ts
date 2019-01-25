@@ -1,5 +1,4 @@
 import { Ingerdient } from './../objects/ingredient';
-import { Instruction } from './../objects/instruction';
 import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ServerServicesService } from './../server-services.service';
