@@ -15,7 +15,7 @@ export class ServerServicesService {
       port: 3000
     },
     production: {
-      url: 'http://momskitchen.ddns.net',
+      url: 'http://ec2-18-222-30-204.us-east-2.compute.amazonaws.com',
       port: 3000
     }
   };
