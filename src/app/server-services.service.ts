@@ -4,11 +4,10 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Recipe } from './objects/recipe';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class ServerServicesService {
-
-  constructor(private http: Http) { }
 
   private apiAddress = {
     dev: {
@@ -20,7 +19,16 @@ export class ServerServicesService {
       port: 3000
     }
   };
-  private isLive: boolean = true;
+  private isLive: boolean;
+
+  constructor(private http: Http) { 
+    if (environment.production) {
+      this.isLive = true;
+    }
+    else {
+      this.isLive = false;
+    }
+  }
 
   getApiUrl(): string {
     if (this.isLive) {
