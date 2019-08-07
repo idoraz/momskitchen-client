@@ -9,33 +9,10 @@ import { environment } from '../environments/environment.prod';
 @Injectable()
 export class ServerServicesService {
 
-  private apiAddress = {
-    dev: {
-      url: 'http://127.0.0.1',
-      port: 3010
-    },
-    production: {
-      url: 'http://ec2-18-222-30-204.us-east-2.compute.amazonaws.com',
-      port: 3010
-    }
-  };
-  private isLive: boolean;
-
-  constructor(private http: Http) {
-    // if (environment.production) {
-    //   this.isLive = true;
-    // } else {
-    //   this.isLive = false;
-    // }
-  }
+  constructor(private http: Http) { }
 
   getApiUrl(): string {
-    return `${this.apiAddress.dev.url}:${this.apiAddress.dev.port}`;
-    // if (this.isLive) {
-    //   return `${this.apiAddress.production.url}:${this.apiAddress.production.port}`;
-    // } else {
-    //   return `${this.apiAddress.dev.url}:${this.apiAddress.dev.port}`;
-    // }
+    return `http://${environment.host}:${environment.port}`;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
