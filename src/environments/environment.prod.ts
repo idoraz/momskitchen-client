@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  host: 'momskitchen.ddns.net',
-  port: '3010'
+  host: "localhost",
+  port: "3010",
 };
